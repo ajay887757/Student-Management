@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit Student</title>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 25%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+
+}
+</style>
+</head>
+<body>
+
+<span class="w3-bar-item w3-left"><button onclick="goBack()">Go Back</button></span>
+<br/>
+<br/>
+<center>
+<marquee><storng><h3>Student Edit Form</h3></storng></marquee>
+
+<div class="container">
+  <form method='post' action="{% url 'student:stu_edit_save' stu_id=stu.stu_id %}" enctype="multipart/form-data">
+  {% csrf_token %}
+    
+  Student ID:<br>
+  <input type="text" name="stu_id" placeholder="Student id"  value="{{ stu.stu_id }}">
+  <br>
+  
+  First Name:<br>
+  <input type="text" name="stu_fname" placeholder="first Name" value="{{ stu.stu_fname }}">
+  <br><br>
+  
+  Last Name:<br>
+  <input type="text" name="stu_lname" placeholder="last Name" value="{{ stu.stu_lname }}">
+  <br><br>
+  
+  Student Branch:<br>
+  <input type="text" name="stu_branch" placeholder="Branch" value="{{ stu.stu_branch}}">
+  <br><br>
+
+   Student Age:<br>
+  <input type="text" name="stu_age" placeholder="Age" value="{{ stu.stu_age }}" required>
+  <br><br>
+    Student contact:<br>
+  <input type="text" name="stu_contact" placeholder="contact" value="{{ stu.stu_contact }}" required>
+  <br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+
+
+
+
+</center>
+</body>
+
+</html>
