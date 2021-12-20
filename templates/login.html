@@ -10,6 +10,7 @@
 <head>
 <style>
 body {
+
             width: 100%;
             height: 100%;
             max-height: 100%;
@@ -168,9 +169,8 @@ span.psw {
 
 
 <div id="entry">
-<center><a href="{% url 'student:index' %}"class="w3-button w3-blue w3-padding"><i class="fa fa-users fa-fw"></i>  Log In!!</a></center>
+<center><a href="{% url 'student:index' %}"class="w3-button w3-blue w3-padding"><i class="fa fa-users fa-fw"></i>  !!Log In!!</a></center>
 </div>
-
 <div id="id01" class="modal">
     
   <form method="post" class="modal-content animate" action="{% url 'student:Login' %}" enctype="multipart/form-data">
@@ -210,6 +210,12 @@ span.psw {
 <footer class="w3-container">
   </br>
     <h4><a href="#">Student Management</a></h4>
+  <div class="w3-bar w3-top" style="seaz-index:4">
+  <span class="w3-bar-item w3-right"><button id="add" name="add" class="w3-button w3-brown"><b><a href="{% url 'student:add_stu1'  %}">Add Student ItSelf+</a></b></button></span>
+  <span class="w3-bar-item w3-left"><button id="About" name="About" class="w3-button w3-brown"><b><a href="{% url 'student:About'  %}">About Me+</a></b></button></span>
+  </div>
+    
+    
 
 </footer>
 </body>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+    <html lang="en">
+{% load static %}
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My website</title>
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href={% static "css/style_Aboutme.css" %}
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <!-- Latest compiled and minified CSS -->
+        <!--bootstrap-->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+
+<!-- Optional theme -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous"> -->
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    </head> -->
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Ajay Kumar Mandal</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                        <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        <li class="nav__item"><a href="#Map" class="nav__link">Map</a></li>
+                        
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <!-- <section class="home" id="home">
+                <div>
+                    <img src="/static/images/beauty.jpeg" alt="">
+                </div> -->
+            
+            <!--===== ABOUT =====-->
+            <section class="about section" id="about">
+                <h2 class="section-title">About Me</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src={% static "images/pic1.jpeg" %} alt="">
+                    </div>
+
+                    <div>
+                        <h2 class="about__subtitle">I'am Ajay Kumar Mandal</h2>
+                        <span class="about__profession">Web designer</span>
+                        <p class="about__text">I am a student of Computer Science Engineering. 
+                        I've done some projects on Web Development.
+                        I am interested in Data Science and Machine Learning.
+                        I also love to practice programming.</p>
+
+                        <div class="about__social">
+                            <a href="https://www.linkedin.com/in/ajay-kumar-mandal-962a07204/" class="about__social-icon" target="blank"><i class='bx bxl-linkedin' ></i></a>
+                            <a href="https://github.com/ajay887757" class="about__social-icon " target="blank"><i class='bx bxl-github' ></i></a>
+                            <a href="https://www.instagram.com/ajay.mandal9/" class="about__social-icon" target="blank"><i class='bx bxl-instagram' ></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">
+                    <div class="skills__img">
+                        <img src={% static "images/skill.jpg" %} alt="">
+                    </div>
+                    <div class="skills__box">
+                        <h3 class="skills__subtitle">Development</h3>
+                        <span class="skills__name">C</span>
+                        <span class="skills__name">C++</span>
+                        <span class="skills__name">Html</span>
+                        <span class="skills__name">Css</span>
+                        <span class="skills__name">Javascript</span>
+                        <span class="skills__name">Java</span>
+                        <span class="skills__name">Python</span>
+                        
+                        <h3 class="skills__subtitle">Design</h3>
+                        <span class="skills__name">Photoshop</span>
+
+                        <h3 class="skills__subtitle">Framework</h3>
+                        <span class="skills__name">Django</span>
+                        <span class="skills__name">Bootstrap</span>
+                    </div>
+
+                    
+                </div>
+            </section>
+
+            <!--===== PORTFOLIO =====-->
+            <section class="portfolio section" id="portfolio">
+                <h2 class="section-title">Portfolio</h2>
+
+                <div class="portfolio__container bd-grid">
+                    <div class="portfolio__img hw">
+                            <a href="https://drive.google.com/file/d/14fSG1x32dwc3CNGjvslVdLiinkTYIOXT/view?usp=sharing" >
+                                <img src={% static "images/c_and_c++.jpg" %} alt=""></a>
+                    </div>
+                    <div class="portfolio__img hw">
+                            <a href="https://drive.google.com/file/d/14_YsJ0lDgUoyXneVYdq35AAI2pRmLW07/view?usp=sharing" >
+                                <img src={% static "images/JavaCertificate.jpg" %} alt=""></a>  
+                    </div>
+                    
+                    <div class="portfolio__img hw1">
+                            <a href="https://drive.google.com/file/d/1204A87BGNDMh5mnMI9YzLxfCNINaUN0p/view?usp=sharing">
+                                <img src={% static "images/python.jpg" %} alt=""></a>
+                        
+                    </div>
+                    <div class="portfolio__img hw2">
+                            <a href="https://drive.google.com/file/d/1ijDK5vmwMdTCFzzbFa0Z7z61DacmrfES/view?usp=sharing">
+                                <img src={% static "images/isro.jpg" %} alt="">
+                            </a>   
+                    </div>
+
+                    <div class="portfolio__img sz">
+                            <a href="https://drive.google.com/file/d/1EYfkJNJFypnVBcLgArtTe_ccgX-aBgD-/view?usp=sharing" >
+                                <img src={% static "images/javaintranship.jpg" %} alt="">
+                                
+                            </a>
+                    </div>
+
+                    <div class="portfolio__img hw1">
+                            <a href="https://drive.google.com/file/d/1vOxo6bHz0R5aMX6PH76s8ADOmopYjigv/view?usp=sharing">
+                                <img src={% static "images/Html_java_css.jpg" %} alt=""></a>
+                    
+                    </div>
+
+                    
+
+                </div>
+            </section>
+
+
+                <!--===== PROJECTS =====-->
+                    <section class="portfolio section" id="projects">
+                        <h2 class="section-title">Projects</h2>
+
+                        <div class="portfolio__container bd-grid">
+                            <div class="portfolio__img">
+                                <img src={% static "images/student_management.png" %}> 
+                                <br> <label>Student Management System</label>
+
+                                <div class="portfolio__link">
+                                    <a href="https://github.com/ajay887757/Student-Management" class="portfolio__link-name">View details</a>
+                                    <br>
+                                </div>
+                            </div>
+                            
+                        
+                            <div class="portfolio__img">
+                                <img src={% static "images/ecom.png" %} alt="">
+                                <br> <label>E-commerce website</label>
+
+
+                                <div class="portfolio__link">
+                                    <a href="#" class="portfolio__link-name">View details</a>
+                                </div>
+                            </div>
+
+                            <div class="portfolio__img">
+                                <img src={% static "images/facial.jpg" %} alt="">
+                                <br> <label>Face Recognition Attendance System</label>
+
+
+                                <div class="portfolio__link">
+                                    <a href="#" class="portfolio__link-name">View details</a><br>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">EMAIL</h3>
+                        <span class="contact__text">ajaysankorthu@gmail.com</span>
+
+                        <h3 class="contact__subtitle">PHONE</h3>
+                        <span class="contact__text">9522401355</span>
+
+                        <h3 class="contact__subtitle">ADDRESS</h3>
+                        <span class="contact__text">Madhubani, Bihar, India</span>
+                    </div>
+
+                    <form action="" class="contact__form" method="post" >
+                        {% csrf_token %}
+                        <div class="contact__inputs">
+                            <input type="text" placeholder="Name" class="contact__input" name="name">
+                            <input type="mail" placeholder="Email" class="contact__input" name="mail">
+                        </div>
+
+                        <textarea name="textarea" id="" cols="0" rows="10" class="contact__input" ></textarea>
+
+                        <input type="submit" value="Send" class="contact__button">
+                    </form>
+                </div>
+            <!--===== map =====-->
+            </section>
+            <section class="Map Section" id="Map">
+                <h2 class="section-title">Map</h2>
+                <center>
+                <div class="map ">
+                    <iframe class="s1" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d114412.6946050342!2d86.073602!3d26.346028000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39edcd30bc1d5d47%3A0x8bbe389999d9c709!2sMadhubani%2C%20Bihar!5e0!3m2!1sen!2sin!4v1635864208168!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div></center>
+            </section>
+
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer section">
+            <div class="footer__container bd-grid">
+                <div class="footer__data">
+                    <h2 class="footer__title">AJAY KUMAR MANDAL</h2>
+                    <p class="footer__text">I'm Ajay Kumar Mandal and this is my personal website</p>
+                    <a href="mailto:ajaysankorthu@gmail.com" class="footer__social"><i class='bx bx-mail-send' ></i></a>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__title">EXPLORE</h2>
+                    <ul>
+                        <li><a href="#home" class="footer__link">Home</a></li>
+                        <li><a href="#about" class="footer__link">About</a></li>
+                        <li><a href="#skills" class="footer__link">Skills</a></li>
+                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+                        <li><a href="#projects" class="footer__link">Projects</a></li>
+                        <li><a href="#Contact" class="footer__link">Contact</a></li>
+                        <li ><a href="#Map" class="footer__link">Map</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__data">
+                    <h2 class="footer__title">FOLLOW</h2>
+                    <a href="https://www.linkedin.com/in/ajay-kumar-mandal-962a07204/" class="about__social-icon" target="blank"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/ajay887757" class="about__social-icon " target="blank"><i class='bx bxl-github' ></i></a>
+                    <a href="https://www.instagram.com/ajay.mandal9/" class="about__social-icon" target="blank"><i class='bx bxl-instagram' ></i></a>
+
+                    <p>&#169; 2021 copyright all right reserved</p>
+                </div>
+
+
+            </div>
+        </footer>
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src={% static "js/Aboutme.js" %}></script>
+    </body>
+</html>

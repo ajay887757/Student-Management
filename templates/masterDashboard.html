@@ -34,7 +34,7 @@ table {
 .modal-content {
     background-color: #fefefe;
     margin: auto;
-    padding: 20px;
+    padding: 2px;
     border: 1px solid #888;
     width: 82%;
 }
@@ -43,7 +43,7 @@ table {
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -54,8 +54,9 @@ table {
     cursor: pointer;
 }
 
-</style>
 
+
+</style>
 
 <body class="w3-light-grey">
 
@@ -72,11 +73,12 @@ $(document).ready(function(){
 </script>
 
 
-<div class="w3-bar w3-top w3-khaki w3-large" style="seaz-index:4">
+<div class="w3-bar w3-top w3-khaki w3-large" >
  
  <span class="w3-bar-item w3-x"> <a href="{% url 'student:Logout' %}"><button id="homepage" name="homepage" class="w3-button w3-red"><b>Logout</b></button></a> </span>   
- <span class="w3-bar-item w3-right"><button id="add" name="add" class="w3-button w3-green"><b><a href="{% url 'student:add_stu'  %}">Add Student+</a></b></button></span>
- <span class="w3-bar-item w3-right"><button id="add" name="add" class="w3-button w3-brown"><a href="{% url 'student:download'  %}"><b>Download Report</b></a></button></span>
+ <span class="w3-bar-item w3-right"><button id="add" name="add" class="w3-button w3-brown"><b><a href="{% url 'student:add_stu' %}">Add Student+</a></b></button></span>
+ <span class="w3-bar-item w3-right"><button id="Contact" name="Contact" class="w3-button w3-brown"><b><a href="{% url 'student:show_contact' %}">Contact+</a></b></button></span>
+ <span class="w3-bar-item w3-right"><button id="add" name="add" class="w3-button w3-brown"><a href="{% url 'student:download' %}"><b>Download Report</b></a></button></span>
  
  
 </div>
@@ -95,9 +97,12 @@ $(document).ready(function(){
 <table class="table table-striped" id="enquiryTable">
 <thead>
 <tr>
-  <th>Student ID</th>
+  <th>Enrollment NO</th>
   <th>First Name</th>
   <th>Last Name</th>
+    <th>Date Of Birth</th>
+    <th>Gender</th>
+
   <th>Details</th>
   <th>Edit</th>
   <th>Delete</th>
@@ -111,15 +116,22 @@ $(document).ready(function(){
     
     <td>{{ stu.stu_id }}</td>
     <td>{{ stu.stu_fname }}</td>
-    <td>{{ stu.stu_lname }}</td>  
+    <td>{{ stu.stu_lname }}</td>
+    <td>{{ stu.stu_Day}}-{{stu.stu_Month}}-{{stu.stu_Year}}</td>
+    <td>{{stu.stu_gender}}</td>
+
+    <td><button type="button" class="btn  btn-success"  onclick="updateCostModal(stu_id='{{ stu.stu_id }}', 
+    stu_fname ='{{ stu.stu_fname }}'+ ' ' + '{{ stu.stu_lname }}',
+    stu_Day='{{ stu.stu_Day}}'+'-'+'{{stu.stu_Month}}'+'-'+'{{stu.stu_Year}}',stu_gender='{{stu.stu_gender}}',
+     stu_room='{{stu.stu_room}}',stu_contact='{{ stu.stu_contact }}', stu_email='{{ stu.stu_email }}',
+     COURSES='{{ stu.COURSES}}',stu_branch='{{ stu.stu_branch}}',
+    Address='{{ stu.Address}}',City='{{ stu.City}}',Pin_Code='{{ stu.Pin_Code}}',State='{{ stu.State}}',
+    Country='{{ stu.Country}}',);">View</button></td>
     
-    <td><button type="button" class="w3-button w3-teal"  onclick="updateCostModal(stu_id='{{ stu.stu_id }}', stu_age='{{ stu.stu_age }}',
-    stu_contact='{{ stu.stu_contact }}', stu_branch='{{ stu.stu_branch }}');">View</button></td>
+    <td><a href="{% url 'student:edit_stu' stu_id=stu.stu_id %}"><button type="button" class="btn  btn-success">Edit</button></a></td>
     
-    <td><a href="{% url 'student:edit_stu' stu_id=stu.stu_id %}"><button type="button" class="w3-button w3-green">Edit</button></a></td>
-    
-    <td><a href="{% url 'student:del_stu' stu_id=stu.stu_id %}" onclick="return confirm('Are you sure you want to delete this Student?');"><button type="button" class="w3-button w3-red">Delete</button></a></td>
-    
+    <td><a href="{% url 'student:del_stu' stu_id=stu.stu_id %}" onclick="return confirm('Are you sure you want to delete this Student?');"><button type="button" class="btn  btn-success w3-red">Delete</button></a></td>
+
 
 	
        
@@ -143,57 +155,128 @@ $(document).ready(function(){
   <span onclick="document.getElementById('updateCostModal').style.display='none'" class="close" title="Close Modal">&times;</span>
   <!------------------------------------------------------------------------------ -->
 
-  
 <form role="form" method="post" id="update_kit_form_id" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" action="#" enctype="multipart/form-data"  >
         {% csrf_token %}
 <!-- <form action="/action_page.php" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin"> -->
 <h1 class="w3-center">Student Details</h1>
 
-<div class="w3-row-padding w3-section">
 
-    <div class="w3-col" style="width:20%">
-	  <label for="stu_id"> Student Id :: </label>
+
+    <div class="w3-col" style="width:21%">
+      <div class="w3-row-padding w3-section">
+	  <label for="stu_id"> Enrollment NO :: </label>
       <b><input id="stu_id" name="stu_id" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
     </div>
 
 </div>
 
-<div class="w3-row-padding w3-section">
-
-    <div class="w3-col" style="width:20%">
-	  <label for="stu_age"> Student Age :: </label>
-      <b><input id="stu_age" name="stu_age" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
-    </div>
-
+<div class="w3-col" style="width:30%">
+  <div class="w3-row-padding w3-section">
+<label for="stu_fname"> Full Name :: </label>
+  <b><input id="stu_fname" name="stu_fname" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+</div>
 </div>
 
-<div class="w3-row-padding w3-section">
-
-    <div class="w3-col" style="width:20%">
-	  <label for="stu_contact"> Student contact :: </label>
-      <b><input id="stu_contact" name="stu_contact" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
-    </div>
-
+<div class="w3-col" style="width:22%">
+  <div class="w3-row-padding w3-section">
+<label for="stu_Day"> Date Of Birth :: </label>
+  <b><input id="stu_Day" name="stu_Day" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+</div>
 </div>
 
-<div class="w3-row-padding w3-section">
+
+<div class="w3-col" style="width:13%">
+  <div class="w3-row-padding w3-section">
+<label for="stu_gender"> Gender :: </label>
+  <b><input id="stu_gender" name="stu_gender" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+</div>
+</div>
+
+
+<div class="w3-col" style="width:16%">
+  <div class="w3-row-padding w3-section">
+<label for="stu_room"> Room No :: </label>
+  <b><input id="stu_room" name="stu_room" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+  </div>
+  </div>
+
+<div class="w3-col" style="width:20%">
+  <div class="w3-row-padding w3-section">
+<label for="stu_contact"> Mobile Number :: </label>
+  <b><input id="stu_contact" name="stu_contact" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+  </div>
+  </div>
+    
+
+    <div class="w3-col" style="width:33%">
+      <div class="w3-row-padding w3-section">
+	  <label for="stu_email"> Email Id :: </label>
+      <b><input id="stu_email" name="stu_email" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+      </div>
+      </div>
+
+      <div class="w3-col" style="width:25%">
+        <div class="w3-row-padding w3-section">
+      <label for="COURSES"> Courses :: </label>
+        <b><input id="COURSES" name="COURSES" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+      </div>
+  </div>
+  
+  
+      <div class="w3-col" style="width:30%">
+        <div class="w3-row-padding w3-section">
+      <label for="stu_branch"> Branch :: </label>
+        <b><input id="stu_branch" name="stu_branch" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+      </div>
+  </div>
+  
 
     <div class="w3-col" style="width:40%">
-	  <label for="stu_branch"> Student branch :: </label>
-      <b><input id="stu_branch" name="stu_branch" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+      <div class="w3-row-padding w3-section">
+	  <label for="Address"> Address :: </label>
+      <b><input id="Address" name="Address" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
     </div>
+</div>
+        
 
+    <div class="w3-col" style="width:20%">
+      <div class="w3-row-padding w3-section">
+	  <label for="City"> City :: </label>
+      <b><input id="City" name="City" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+    </div>
+</div>
+   
+
+    <div class="w3-col" style="width:20%">
+      <div class="w3-row-padding w3-section">
+	  <label for="State"> State :: </label>
+      <b><input id="State" name="State" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+    </div>
 </div>
 
+<div class="w3-col" style="width:15%">
+  <div class="w3-row-padding w3-section">
+<label for="Pin_Code">Pin Code:: </label>
+  <b><input id="Pin_Code" name="Pin_Code" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+</div>
+</div>
+
+        
+
+    <div class="w3-col" style="width:16%">
+      <div class="w3-row-padding w3-section">
+	  <label for="Country"> Country:: </label>
+      <b><input id="Country" name="Country" class="w3-input w3-border w3-grey" value="" type="text"   readonly=""></input></b>
+    </div>
+</div>
+        
 
 
 
 
 
 </form>
-
 </div>
-    
 </div>
 
 
@@ -204,13 +287,26 @@ $(document).ready(function(){
 
 <script>
 
-function updateCostModal(stu_id,stu_age,stu_contact,stu_branch) {
+function updateCostModal(stu_id,stu_fname,stu_Day,stu_gender,stu_room ,stu_contact, stu_email,COURSES,stu_branch,Address,City,Pin_Code,State,Country,) {
                
     document.getElementById('updateCostModal').style.display='block';
     document.getElementById('stu_id').value = stu_id;
-    document.getElementById('stu_age').value = stu_age;
+    document.getElementById('stu_fname').value = stu_fname;
+    document.getElementById('stu_Day').value = stu_Day;
+    document.getElementById('stu_gender').value = stu_gender;
+    document.getElementById('stu_room').value = stu_room;
     document.getElementById('stu_contact').value = stu_contact;
+    document.getElementById('stu_email').value = stu_email;
+    document.getElementById('COURSES').value = COURSES;
     document.getElementById('stu_branch').value = stu_branch;
+    document.getElementById('Address').value = Address;
+    document.getElementById('City').value = City;
+    document.getElementById('Pin_Code').value = Pin_Code;
+    document.getElementById('State').value = State;
+    document.getElementById('Country').value = Country;
+    
+
+
       
 
     
